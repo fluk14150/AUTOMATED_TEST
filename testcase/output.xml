@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230706 10:56:28.725" rpa="false" schemaversion="3">
+<suite id="s1" name="Scenario" source="C:\Users\Fluk Doppio\Desktop\ex001_rework\ex002_structure\testcase\scenario.robot">
+<test id="s1-t1" name="TC-001 Verify that the system display price in cart correctly when add a product to cart" line="5">
+<kw name="Open website next input username and password" library="login_feature">
+<kw name="Open web Test" library="login_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Web}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230706 10:56:29.154" level="INFO">Opening browser 'chrome' to base url 'http://testphp.vulnweb.com/login.php'.</msg>
+<status status="PASS" starttime="20230706 10:56:29.153" endtime="20230706 10:56:31.952"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:29.153" endtime="20230706 10:56:31.952"/>
+</kw>
+<kw name="input username" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Username_box}</arg>
+<arg>${Username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:31.954" level="INFO">Typing text 'test' into text field '//input[@name='uname']'.</msg>
+<status status="PASS" starttime="20230706 10:56:31.953" endtime="20230706 10:56:32.114"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:31.953" endtime="20230706 10:56:32.114"/>
+</kw>
+<kw name="input password" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Password_box}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:32.115" level="INFO">Typing text 'test' into text field '//input[@name='pass']'.</msg>
+<status status="PASS" starttime="20230706 10:56:32.114" endtime="20230706 10:56:32.195"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:32.114" endtime="20230706 10:56:32.195"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:29.153" endtime="20230706 10:56:32.195"/>
+</kw>
+<kw name="Click login to userinfo page" library="login_feature">
+<kw name="Click login button" library="login_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:32.196" level="INFO">Clicking element '//td//input[@type='submit']'.</msg>
+<status status="PASS" starttime="20230706 10:56:32.196" endtime="20230706 10:56:32.511"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:32.196" endtime="20230706 10:56:32.511"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:32.196" endtime="20230706 10:56:32.511"/>
+</kw>
+<kw name="Click Browse button" library="user_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${browse_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 10:56:32.512" endtime="20230706 10:56:32.602"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${browse_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:32.603" level="INFO">Clicking element '//li/a [@href='categories.php']'.</msg>
+<status status="PASS" starttime="20230706 10:56:32.602" endtime="20230706 10:56:32.919"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:32.512" endtime="20230706 10:56:32.919"/>
+</kw>
+<kw name="Click poster button" library="categories_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_poster}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:32.920" level="INFO">Clicking element '//h3[contains(text(),'Posters')]'.</msg>
+<status status="PASS" starttime="20230706 10:56:32.919" endtime="20230706 10:56:33.894"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:32.919" endtime="20230706 10:56:33.894"/>
+</kw>
+<kw name="verify name of product and author" library="poster_page">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${verify_tree}</var>
+<arg>${button_tree}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:33.926" level="INFO">${verify_tree} = Trees</msg>
+<status status="PASS" starttime="20230706 10:56:33.895" endtime="20230706 10:56:33.926"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>Trees</arg>
+<arg>${verify_tree}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230706 10:56:33.926" endtime="20230706 10:56:33.927"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${verify_author}</var>
+<arg>${verify_picture}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:33.959" level="INFO">${verify_author} = Blad3</msg>
+<status status="PASS" starttime="20230706 10:56:33.927" endtime="20230706 10:56:33.959"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>Blad3</arg>
+<arg>${verify_author}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230706 10:56:33.959" endtime="20230706 10:56:33.960"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:33.895" endtime="20230706 10:56:33.960"/>
+</kw>
+<kw name="Click tree button" library="poster_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_tree}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:33.961" level="INFO">Clicking element '//h3[contains(text(),'Trees')]'.</msg>
+<status status="PASS" starttime="20230706 10:56:33.960" endtime="20230706 10:56:34.466"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:33.960" endtime="20230706 10:56:34.466"/>
+</kw>
+<kw name="Click add product to cart" library="product_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_addcart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:34.467" level="INFO">Clicking element '//form/input[@value='add this picture to cart']'.</msg>
+<status status="PASS" starttime="20230706 10:56:34.467" endtime="20230706 10:56:34.790"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:34.467" endtime="20230706 10:56:34.790"/>
+</kw>
+<kw name="verify price of tree" library="cart_page">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${verify_price}</var>
+<arg>${price_tree}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230706 10:56:34.816" level="INFO">${verify_price} = Total: $15000</msg>
+<status status="PASS" starttime="20230706 10:56:34.791" endtime="20230706 10:56:34.816"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>Total: $15000</arg>
+<arg>${verify_price}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230706 10:56:34.816" endtime="20230706 10:56:34.816"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:34.791" endtime="20230706 10:56:34.816"/>
+</kw>
+<status status="PASS" starttime="20230706 10:56:29.152" endtime="20230706 10:56:34.816"/>
+</test>
+<status status="PASS" starttime="20230706 10:56:28.728" endtime="20230706 10:56:34.817"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Scenario">Scenario</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230706 10:56:29.129" level="ERROR">Error in file 'C:\Users\Fluk Doppio\Desktop\ex001_rework\ex002_structure\import.robot' on line 4: Importing library 'yaml' failed: ModuleNotFoundError: No module named 'yaml'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\Fluk Doppio\AppData\Local\Programs\Python\Python311\Scripts\robot.exe
+  C:\Users\Fluk Doppio\AppData\Local\Programs\Python\Python311\python311.zip
+  C:\Users\Fluk Doppio\AppData\Local\Programs\Python\Python311\DLLs
+  C:\Users\Fluk Doppio\AppData\Local\Programs\Python\Python311\Lib
+  C:\Users\Fluk Doppio\AppData\Local\Programs\Python\Python311
+  C:\Users\Fluk Doppio\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
+<msg timestamp="20230706 10:56:29.145" level="ERROR">Error in file 'C:\Users\Fluk Doppio\Desktop\ex001_rework\ex002_structure\import.robot' on line 14: Processing variable file 'C:\Users\Fluk Doppio\Desktop\ex001_rework\ex002_structure\resources\variable.yml' failed: Using YAML variable files requires PyYAML module to be installed. Typically you can install it by running `pip install pyyaml`.</msg>
+<msg timestamp="20230706 10:56:29.148" level="ERROR">Error in file 'C:\Users\Fluk Doppio\Desktop\ex001_rework\ex002_structure\import.robot' on line 15: Error in file 'C:\Users\Fluk Doppio\Desktop\ex001_rework\ex002_structure\testcase\scenario.robot' on line 4: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>
